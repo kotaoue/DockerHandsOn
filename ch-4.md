@@ -12,4 +12,9 @@ Status: Downloaded newer image for httpd:2.4
 docker.io/library/httpd:2.4
 $ docker create --name my-apache-app -p 8080:80 -v "$PWD":/usr/local/apach2/htdocs/ httpd:2.4
 3a23fd8e85e6851f63b7386aa703ed4356b6b4242530716b63fcc50008567c32
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+3a23fd8e85e6        httpd:2.4           "httpd-foreground"   24 seconds ago      Up 5 seconds        0.0.0.0:8080->80/tcp   my-apache-app
+$ curl localhost:8080
+<html><body><h1>It works!</h1></body></html>
 ```
