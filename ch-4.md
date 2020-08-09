@@ -66,4 +66,11 @@ $ curl https://registry.hub.docker.com/v1/repositories/php/tags 2>&1 | grep -o "
 "name": "8.0.0alpha3-fpm-buster"
 "name": "8.0.0alpha3-zts"
 "name": "8.0.0alpha3-zts-buster"
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+3a23fd8e85e6        httpd:2.4           "httpd-foreground"   36 minutes ago      Up 2 minutes        0.0.0.0:8080->80/tcp   my-apache-app
+$ docker kill my-apache-app
+my-apache-app
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
