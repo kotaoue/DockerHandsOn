@@ -55,4 +55,9 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                                NAMES
 6dc63bb2870d        httpd:2.4           "httpd-foreground"       9 minutes ago       Exited (0) 39 seconds ago                                        my-apache-app
+$ docker start my-apache-app
+my-apache-app
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+6dc63bb2870d        httpd:2.4           "httpd-foreground"   10 minutes ago      Up 8 seconds        0.0.0.0:8080->80/tcp   my-apache-app
 ```
