@@ -52,4 +52,7 @@ $ docker stop my-apache-app
 my-apache-app
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                                NAMES
+6dc63bb2870d        httpd:2.4           "httpd-foreground"       9 minutes ago       Exited (0) 39 seconds ago                                        my-apache-app
 ```
