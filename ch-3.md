@@ -21,4 +21,18 @@ See 'docker logs --help'.
 Usage:  docker logs [OPTIONS] CONTAINER
 
 Fetch the logs of a container
+$ curl localhost:8080
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /</title>
+ </head>
+ <body>
+<h1>Index of /</h1>
+<ul><li><a href=".git/"> .git/</a></li>
+<li><a href="README.md"> README.md</a></li>
+<li><a href="ch-2.md"> ch-2.md</a></li>
+<li><a href="ch-3.md"> ch-3.md</a></li>
+</ul>
+</body></html>
 ```
