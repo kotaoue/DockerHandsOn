@@ -67,4 +67,12 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
 6dc63bb2870d        httpd:2.4           "httpd-foreground"   11 minutes ago      Up 3 seconds        0.0.0.0:8080->80/tcp   my-apache-app
+$ docker rm my-apache-app
+Error response from daemon: You cannot remove a running container 6dc63bb2870d2e2f4cab5139ea82f4bf6fa2da7ee42418e73276bff1ab93d295. Stop the container before attempting removal or force remove
+$ docker stop 6dc63bb2870d
+6dc63bb2870d
+$ docker rm my-apache-app
+my-apache-app
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
 ```
