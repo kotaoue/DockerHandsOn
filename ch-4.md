@@ -108,4 +108,26 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 e8f53fb13e16        httpd:2.4           "httpd-foreground"       About a minute ago   Exited (0) 13 seconds ago                                        my-apache-app
 $ docker rm my-apache-app
 my-apache-app
+
+$ docker run --name my-apache-app -it httpd:2.4 /bin/bash
+root@49897c582807:/usr/local/apache2# ll
+bash: ll: command not found
+root@49897c582807:/usr/local/apache2# ls  
+bin  build  cgi-bin  conf  error  htdocs  icons  include  logs	modules
+root@49897c582807:/usr/local/apache2# $ 
+$ ls
+README.md  ch-2.md    ch-3.md    ch-4.md    index.html
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+49897c582807        httpd:2.4           "/bin/bash"         47 seconds ago      Up 46 seconds       80/tcp              my-apache-app
+$ docker attach my-apache-app
+root@49897c582807:/usr/local/apache2# exit
+exit
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                        PORTS                                NAMES
+49897c582807        httpd:2.4           "/bin/bash"              About a minute ago   Exited (130) 12 seconds ago                                        my-apache-app
+$ docker rm my-apache-app
+my-apache-app
 ```
