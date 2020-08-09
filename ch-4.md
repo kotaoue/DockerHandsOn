@@ -153,4 +153,19 @@ $ touch main.go
 $ vim main.go
 $ go run main.go 
 Hello World
+$ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp golang:1.13 go build -v
+Unable to find image 'golang:1.13' locally
+1.13: Pulling from library/golang
+d6ff36c9ec48: Pull complete 
+c958d65b3090: Pull complete 
+edaf0a6b092f: Pull complete 
+80931cf68816: Pull complete 
+813643441356: Pull complete 
+799f41bb59c9: Pull complete 
+16b5038bccc8: Pull complete 
+Digest: sha256:8ebb6d5a48deef738381b56b1d4cd33d99a5d608e0d03c5fe8dfa3f68d41a1f8
+Status: Downloaded newer image for golang:1.13
+_/usr/src/myapp
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
 ```
