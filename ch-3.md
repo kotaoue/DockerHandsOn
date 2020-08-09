@@ -35,4 +35,5 @@ $ curl localhost:8080
 <li><a href="ch-3.md"> ch-3.md</a></li>
 </ul>
 </body></html>
+$ vim index.html
 ```
