@@ -168,4 +168,14 @@ Status: Downloaded newer image for golang:1.13
 _/usr/src/myapp
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
+
+$ docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] N
+Total reclaimed space: 0B
+
+$ docker image prune
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] N
+Total reclaimed space: 0B
 ```
