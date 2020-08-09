@@ -48,4 +48,8 @@ I'm index.html
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
 6dc63bb2870d        httpd:2.4           "httpd-foreground"   8 minutes ago       Up 8 minutes        0.0.0.0:8080->80/tcp   my-apache-app
+$ docker stop my-apache-app
+my-apache-app
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
