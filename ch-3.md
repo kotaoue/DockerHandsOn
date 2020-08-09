@@ -75,4 +75,7 @@ $ docker rm my-apache-app
 my-apache-app
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
+$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+httpd               2.4                 a6ea92c35c43        3 days ago          166MB
 ```
