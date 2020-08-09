@@ -64,4 +64,7 @@ $ docker stop 6dc63bb2870d
 6dc63bb2870d
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+6dc63bb2870d        httpd:2.4           "httpd-foreground"   11 minutes ago      Up 3 seconds        0.0.0.0:8080->80/tcp   my-apache-app
 ```
