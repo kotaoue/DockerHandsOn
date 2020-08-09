@@ -36,4 +36,13 @@ $ curl localhost:8080
 </ul>
 </body></html>
 $ vim index.html
+$ curl localhost:8080
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
 ```
