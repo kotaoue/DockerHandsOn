@@ -92,4 +92,20 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 07968eea4a12        httpd:2.4           "httpd-foreground"       40 seconds ago      Exited (0) 27 seconds ago                                        my-apache-app
 $ docker rm my-apache-app
 my-apache-app
+
+$ docker run -it --name my-apache-app -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+[Sun Aug 09 11:32:40.287585 2020] [mpm_event:notice] [pid 1:tid 140712158729344] AH00489: Apache/2.4.46 (Unix) configured -- resuming normal operations
+[Sun Aug 09 11:32:40.287716 2020] [core:notice] [pid 1:tid 140712158729344] AH00094: Command line: 'httpd -D FOREGROUND'
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
+e8f53fb13e16        httpd:2.4           "httpd-foreground"       34 seconds ago      Up 33 seconds              0.0.0.0:8080->80/tcp                 my-apache-app
+$ docker attach my-apache-app
+[Sun Aug 09 11:33:39.509713 2020] [mpm_event:notice] [pid 1:tid 140712158729344] AH00492: caught SIGWINCH, shutting down gracefully
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                      PORTS                                NAMES
+e8f53fb13e16        httpd:2.4           "httpd-foreground"       About a minute ago   Exited (0) 13 seconds ago                                        my-apache-app
+$ docker rm my-apache-app
+my-apache-app
 ```
