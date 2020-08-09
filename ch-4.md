@@ -73,4 +73,23 @@ $ docker kill my-apache-app
 my-apache-app
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+$ docker run --name my-apache-app -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4
+docker: Error response from daemon: Conflict. The container name "/my-apache-app" is already in use by container "3a23fd8e85e6851f63b7386aa703ed4356b6b4242530716b63fcc50008567c32". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+$ docker rm my-apache-app
+my-apache-app
+$ docker run --name my-apache-app -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+[Sun Aug 09 11:29:39.606621 2020] [mpm_event:notice] [pid 1:tid 139823418066048] AH00489: Apache/2.4.46 (Unix) configured -- resuming normal operations
+[Sun Aug 09 11:29:39.607797 2020] [core:notice] [pid 1:tid 139823418066048] AH00094: Command line: 'httpd -D FOREGROUND'
+^C[Sun Aug 09 11:29:52.478245 2020] [mpm_event:notice] [pid 1:tid 139823418066048] AH00491: caught SIGTERM, shutting down
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS                                NAMES
+07968eea4a12        httpd:2.4           "httpd-foreground"       40 seconds ago      Exited (0) 27 seconds ago                                        my-apache-app
+$ docker rm my-apache-app
+my-apache-app
 ```
