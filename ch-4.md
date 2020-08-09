@@ -148,4 +148,9 @@ $ docker stop my-apache-app
 my-apache-app
 $ docker rm my-apache-app
 my-apache-app
+
+$ touch main.go
+$ vim main.go
+$ go run main.go 
+Hello World
 ```
