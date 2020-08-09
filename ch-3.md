@@ -14,4 +14,11 @@ Status: Downloaded newer image for httpd:2.4
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
 6dc63bb2870d        httpd:2.4           "httpd-foreground"   38 seconds ago      Up 37 seconds       0.0.0.0:8080->80/tcp   my-apache-app
+$ docker logs
+"docker logs" requires exactly 1 argument.
+See 'docker logs --help'.
+
+Usage:  docker logs [OPTIONS] CONTAINER
+
+Fetch the logs of a container
 ```
