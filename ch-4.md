@@ -130,4 +130,22 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 49897c582807        httpd:2.4           "/bin/bash"              About a minute ago   Exited (130) 12 seconds ago                                        my-apache-app
 $ docker rm my-apache-app
 my-apache-app
+
+$ docker run -dit --name my-apache-app -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4
+77c00bd313903179bd1981e9ba6e93dd1978089bc028d83e9dcadac36f8cd839
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+77c00bd31390        httpd:2.4           "httpd-foreground"   9 seconds ago       Up 8 seconds        0.0.0.0:8080->80/tcp   my-apache-app
+$ docker exec -it my-apache-app /bin/bash
+root@77c00bd31390:/usr/local/apache2# ls
+bin  build  cgi-bin  conf  error  htdocs  icons  include  logs	modules
+root@77c00bd31390:/usr/local/apache2# exit
+exit
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+77c00bd31390        httpd:2.4           "httpd-foreground"   35 seconds ago      Up 34 seconds       0.0.0.0:8080->80/tcp   my-apache-app
+$ docker stop my-apache-app
+my-apache-app
+$ docker rm my-apache-app
+my-apache-app
 ```
