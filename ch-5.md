@@ -12,4 +12,17 @@ $ curl localhost:8080
 <html><body><h1>It works!</h1></body></html>
 $ curl localhost:8081
 <html><body><h1>It works!</h1></body></html>
+
+$ cp index.html index2.html 
+$ vim index2.html 
+$ docker cp index.html web01:/usr/local/apache2/htdocs/index.html
+$ curl localhost:8080
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
 ```
