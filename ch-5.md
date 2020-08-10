@@ -125,4 +125,6 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                          NAMES
 d746df070001        httpd:2.4           "httpd-foreground"   5 seconds ago       Up 4 seconds        80/tcp, 0.0.0.0:9090->90/tcp   web01
 9526da19310d        httpd:2.4           "httpd-foreground"   15 minutes ago      Up 15 minutes       0.0.0.0:8081->80/tcp           web02
+$ curl localhost:9090
+curl: (52) Empty reply from server
 ```
