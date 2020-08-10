@@ -45,4 +45,15 @@ I'm index.html
 </html>
 root@eede17eeb130:/usr/local/apache2# exit
 exit
+
+$ docker cp index2.html web02:/usr/local/apache2/htdocs/index.html
+$ curl localhost:8081
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index2.html
+</body>
+</html>
 ```
