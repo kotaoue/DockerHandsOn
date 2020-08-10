@@ -25,4 +25,24 @@ $ curl localhost:8080
 I'm index.html
 </body>
 </html>
+
+$ docker exec -it web01 /bin/bash
+root@eede17eeb130:/usr/local/apache2# ls
+bin  build  cgi-bin  conf  error  htdocs  icons  include  logs	modules
+root@eede17eeb130:/usr/local/apache2# ls -la /usr/local/apache2/htdocs/
+total 16
+drwxr-xr-x 1 root     root     4096 Aug 10 23:22 .
+drwxr-xr-x 1 www-data www-data 4096 Aug  5 23:21 ..
+-rw-r--r-- 1      502 dialout    86 Aug  9 10:31 index.html
+root@eede17eeb130:/usr/local/apache2# cat /usr/local/apache2/htdocs/index.html 
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
+root@eede17eeb130:/usr/local/apache2# exit
+exit
 ```
