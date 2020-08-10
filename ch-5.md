@@ -127,4 +127,33 @@ d746df070001        httpd:2.4           "httpd-foreground"   5 seconds ago      
 9526da19310d        httpd:2.4           "httpd-foreground"   15 minutes ago      Up 15 minutes       0.0.0.0:8081->80/tcp           web02
 $ curl localhost:9090
 curl: (52) Empty reply from server
+$ docker stop web01
+web01
+$ docker rm web01
+web01
+
+$ echo "I'm noticed [9090:90] is wronded. correct is [9090:80]."
+
+$ docker run -dit --name web01 -v web01data:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
+4be6535dcc944a85e4e2de49ea032b53f272edd346a82928538f6ef8a248bec0
+$ curl localhost:8080
+<html><body><h1>It works!</h1></body></html>
+$ ll
+total 96
+drwxr-xr-x  12 kota.oue  staff   384  8 11 08:32 .
+drwxr-xr-x  12 kota.oue  staff   384  8  9 19:14 ..
+drwxr-xr-x  15 kota.oue  staff   480  8 11 08:36 .git
+-rw-r--r--   1 kota.oue  staff   196  8  9 19:14 README.md
+-rw-r--r--   1 kota.oue  staff    99  8  9 19:18 ch-2.md
+-rw-r--r--   1 kota.oue  staff  4431  8  9 20:45 ch-3.md
+-rw-r--r--   1 kota.oue  staff  9557  8  9 20:56 ch-4.md
+-rw-r--r--   1 kota.oue  staff  5489  8 11 08:36 ch-5.md
+-rw-r--r--   1 kota.oue  staff    86  8  9 19:31 index.html
+-rw-r--r--   1 kota.oue  staff    87  8 11 08:26 index2.html
+-rw-r--r--   1 kota.oue  staff    72  8  9 20:50 main.go
+drwxr-xr-x   3 kota.oue  staff    96  8 11 08:33 web01data
+$ docker stop web01
+web01
+$ docker rm web01
+web01
 ```
