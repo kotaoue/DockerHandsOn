@@ -112,4 +112,17 @@ web01
 $ mkdir web01data
 $ cp index.html web01data/index.html
 $ vim web01data/index.html 
+
+$ docker run -dit --name web01 -v web01data/:/usr/local/apache2/htdocs -p 9090:90 httpd:2.4
+docker: Error response from daemon: create web01data/: "web01data/" includes invalid characters for a local volume name, only "[a-zA-Z0-9][a-zA-Z0-9_.-]" are allowed. If you intended to pass a host directory, use absolute path.
+See 'docker run --help'.
+$ docker run -dit --name web01 -v ./web01data/:/usr/local/apache2/htdocs -p 9090:90 httpd:2.4
+docker: Error response from daemon: create ./web01data/: "./web01data/" includes invalid characters for a local volume name, only "[a-zA-Z0-9][a-zA-Z0-9_.-]" are allowed. If you intended to pass a host directory, use absolute path.
+See 'docker run --help'.
+$ docker run -dit --name web01 -v web01data:/usr/local/apache2/htdocs -p 9090:90 httpd:2.4
+d746df07000135a44500cf4dceae1e3cb9a34a3c250afdb5b3de147878f0bee5
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                          NAMES
+d746df070001        httpd:2.4           "httpd-foreground"   5 seconds ago       Up 4 seconds        80/tcp, 0.0.0.0:9090->90/tcp   web01
+9526da19310d        httpd:2.4           "httpd-foreground"   15 minutes ago      Up 15 minutes       0.0.0.0:8081->80/tcp           web02
 ```
