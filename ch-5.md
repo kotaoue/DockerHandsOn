@@ -156,4 +156,23 @@ $ docker stop web01
 web01
 $ docker rm web01
 web01
+
+$ docker run -dit --name web01 -v ./web01data:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
+docker: Error response from daemon: create ./web01data: "./web01data" includes invalid characters for a local volume name, only "[a-zA-Z0-9][a-zA-Z0-9_.-]" are allowed. If you intended to pass a host directory, use absolute path.
+See 'docker run --help'.
+$ docker run -dit --name web01 -v "$PWD"/web01data:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
+7db59e088a88b9ee8b5262a1968e0b5b7650550510dffb72b2993d068ca7198b
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+7db59e088a88        httpd:2.4           "httpd-foreground"   7 seconds ago       Up 6 seconds        0.0.0.0:8080->80/tcp   web01
+9526da19310d        httpd:2.4           "httpd-foreground"   26 minutes ago      Up 26 minutes       0.0.0.0:8081->80/tcp   web02
+$ curl localhost:8080
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm web01data/index.html
+</body>
+</html>
 ```
