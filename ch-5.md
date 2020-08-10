@@ -95,4 +95,12 @@ CONTAINER ID        IMAGE               COMMAND              CREATED            
 9526da19310d        httpd:2.4           "httpd-foreground"   9 minutes ago       Up 9 minutes        0.0.0.0:8081->80/tcp   web02
 $ curl localhost:8080
 <html><body><h1>It works!</h1></body></html>
+
+$ docker exec -it web01 /bin/bash 
+root@5147dfe618f0:/usr/local/apache2# ls /usr/local/apache2/htdocs/
+index.html
+root@5147dfe618f0:/usr/local/apache2# cat /usr/local/apache2/htdocs/index.html 
+<html><body><h1>It works!</h1></body></html>
+root@5147dfe618f0:/usr/local/apache2# exit
+exit
 ```
