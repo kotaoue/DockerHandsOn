@@ -191,4 +191,8 @@ $ curl localhost:8080
 I'm web01data/index.html
 </body>
 </html>
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+884c68abdfbc        httpd:2.4           "httpd-foreground"   33 seconds ago      Up 32 seconds       0.0.0.0:8080->80/tcp   web01
+9526da19310d        httpd:2.4           "httpd-foreground"   27 minutes ago      Up 27 minutes       0.0.0.0:8081->80/tcp   web02
 ```
