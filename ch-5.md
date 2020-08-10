@@ -64,4 +64,35 @@ eede17eeb130        httpd:2.4           "httpd-foreground"   8 minutes ago      
 $ docker stop web01
 web01
 $ curl localhost:8080
-curl: (7) Failed to connect to localhost port 8080: Connection refused```
+curl: (7) Failed to connect to localhost port 8080: Connection refused
+
+$ docker start web01
+web01
+$ curl localhost:8080
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
+$ docker stop web01
+web01
+$ docker rm web01
+web01
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+9526da19310d        httpd:2.4           "httpd-foreground"   9 minutes ago       Up 9 minutes        0.0.0.0:8081->80/tcp   web02
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
+9526da19310d        httpd:2.4           "httpd-foreground"       9 minutes ago       Up 9 minutes               0.0.0.0:8081->80/tcp                 web02
+$ docker run -dit --name web01 -p 8080:80 httpd:2.4
+5147dfe618f075fae6f269de409fee269aef907b96a7cc963265b4f89d238f1a
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+5147dfe618f0        httpd:2.4           "httpd-foreground"   3 seconds ago       Up 2 seconds        0.0.0.0:8080->80/tcp   web01
+9526da19310d        httpd:2.4           "httpd-foreground"   9 minutes ago       Up 9 minutes        0.0.0.0:8081->80/tcp   web02
+$ curl localhost:8080
+<html><body><h1>It works!</h1></body></html>
+```
