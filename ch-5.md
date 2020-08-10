@@ -56,4 +56,12 @@ $ curl localhost:8081
 I'm index2.html
 </body>
 </html>
-```
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+9526da19310d        httpd:2.4           "httpd-foreground"   8 minutes ago       Up 7 minutes        0.0.0.0:8081->80/tcp   web02
+eede17eeb130        httpd:2.4           "httpd-foreground"   8 minutes ago       Up 8 minutes        0.0.0.0:8080->80/tcp   web01
+$ docker stop web01
+web01
+$ curl localhost:8080
+curl: (7) Failed to connect to localhost port 8080: Connection refused```
