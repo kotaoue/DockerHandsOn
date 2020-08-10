@@ -175,4 +175,20 @@ $ curl localhost:8080
 I'm web01data/index.html
 </body>
 </html>
+
+$ docker stop web01
+web01
+$ docker rm web01
+web01
+$ docker run -dit --name web01 -v "$PWD"/web01data:/usr/local/apache2/htdocs -p 8080:80 httpd:2.4
+884c68abdfbc93476fb10b11309df1911d6007ff1da96beaa93e5de450442394
+$ curl localhost:8080
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm web01data/index.html
+</body>
+</html>
 ```
