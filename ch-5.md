@@ -103,4 +103,13 @@ root@5147dfe618f0:/usr/local/apache2# cat /usr/local/apache2/htdocs/index.html
 <html><body><h1>It works!</h1></body></html>
 root@5147dfe618f0:/usr/local/apache2# exit
 exit
+
+$ docker stop web01
+web01
+$ docker rm web01
+web01
+
+$ mkdir web01data
+$ cp index.html web01data/index.html
+$ vim web01data/index.html 
 ```
