@@ -797,4 +797,42 @@ $ docker volume inspect mysqlvolume
         "Scope": "local"
     }
 ]
+
+$ docker run --name db01 -dit --mount type=volume,src=mysqlvolume,dst=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=mypassword mysql:5.7
+70ea0cb1d4024b882fe2c4eb0482ef288e15c7b0a01877663eb32af14de7b8b3
+$ docker exec -it db01 /bin/bash
+root@70ea0cb1d402:/# mysql -pmypassword
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.30 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| exampledb          |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+root@70ea0cb1d402:/# exit
+exit
+$ docker stop db01
+db01
+$ docker rm db01
+db01
 ```
