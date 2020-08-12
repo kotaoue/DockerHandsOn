@@ -231,4 +231,10 @@ $ docker_search_tags mysql | grep 5.7
 "name": "5.7.8"
 "name": "5.7.8-rc"
 "name": "5.7.9"
+
+$ docker volume create mysqlvolume
+mysqlvolume
+$ docker volume ls
+DRIVER              VOLUME NAME
+local               mysqlvolume
 ```
