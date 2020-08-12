@@ -366,4 +366,42 @@ $ docker stop db01
 db01
 $ docker rm db01
 db01
+
+$ docker run --name db01 -dit -v mysqlvolume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=mypassword mysql:5.7
+e654580f371dae0b454a0ccddc6502150f29c3b46b6f1e6309886ad26a611342
+$ docker exec -it db01 /bin/bash
+root@e654580f371d:/# mysql -pmypassword
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.30 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| exampledb          |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+root@e654580f371d:/# exit
+exit
+$ docker stop db01
+db01
+$ docker rm db01
+db01
 ```
