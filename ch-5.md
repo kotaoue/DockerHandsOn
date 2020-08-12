@@ -242,4 +242,88 @@ e7b2c287c734b1da0ef1653fbfb4f2c4388a3262d8a0d14a99d5e73bd305646f
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                 NAMES
 e7b2c287c734        mysql:5.7           "docker-entrypoint.s…"   About a minute ago   Up About a minute   3306/tcp, 33060/tcp   db01
+
+$ docker exec -it db01 /bin/bash
+root@e7b2c287c734:/# mysql -pmypassword
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.30 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database exampledb;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| exampledb          |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> create table examples (id int not null auto_increment, name varchar(25), primary key(id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_exampledb |
++---------------------+
+| examples            |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into examples values (1, 'test');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into examples values (2, 'test2');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from examples;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | test  |
+|  2 | test2 |
++----+-------+
+2 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+root@e7b2c287c734:/# exit
+exit
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+e7b2c287c734        mysql:5.7           "docker-entrypoint.s…"   7 minutes ago       Up 7 minutes        3306/tcp, 33060/tcp   db01
+$ docker stop db01
+db01
+$ docker rm db01
+db01
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
 ```
