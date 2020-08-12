@@ -783,4 +783,18 @@ mysqlvolume
 $ docker volume ls
 DRIVER              VOLUME NAME
 local               mysqlvolume
+
+$ docker run --rm -v mysqlvolume:/dest -v "$PWD":/src busybox tar xzf /src/backup.tar.gz -C /dest
+$ docker volume inspect mysqlvolume
+[
+    {
+        "CreatedAt": "2020-08-12T08:53:33Z",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/mysqlvolume/_data",
+        "Name": "mysqlvolume",
+        "Options": {},
+        "Scope": "local"
+    }
+]
 ```
