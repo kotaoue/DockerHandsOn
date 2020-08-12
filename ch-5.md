@@ -237,4 +237,9 @@ mysqlvolume
 $ docker volume ls
 DRIVER              VOLUME NAME
 local               mysqlvolume
+$ docker run --name db01 -dit -v mysqlvolume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=mypassword mysql:5.7
+e7b2c287c734b1da0ef1653fbfb4f2c4388a3262d8a0d14a99d5e73bd305646f
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                 NAMES
+e7b2c287c734        mysql:5.7           "docker-entrypoint.s…"   About a minute ago   Up About a minute   3306/tcp, 33060/tcp   db01
 ```
