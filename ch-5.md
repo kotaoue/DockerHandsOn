@@ -773,4 +773,9 @@ drwxr-xr-x  0 999    999         0  8 12 17:32 ./
 -rw-------  0 999    999      1680  8 12 17:00 ./private_key.pem
 -rw-r--r--  0 999    999      1112  8 12 17:00 ./client-cert.pem
 drwxr-x---  0 999    999         0  8 12 17:00 ./performance_schema/
+
+$ docker volume rm mysqlvolume
+mysqlvolume
+$ docker volume ls
+DRIVER              VOLUME NAME
 ```
