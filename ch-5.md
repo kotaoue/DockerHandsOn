@@ -778,4 +778,9 @@ $ docker volume rm mysqlvolume
 mysqlvolume
 $ docker volume ls
 DRIVER              VOLUME NAME
+$ docker volume create mysqlvolume
+mysqlvolume
+$ docker volume ls
+DRIVER              VOLUME NAME
+local               mysqlvolume
 ```
