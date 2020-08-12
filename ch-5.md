@@ -326,4 +326,44 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS                                NAMES
+
+$ docker run --name db01 -dit -e MYSQL_ROOT_PASSWORD=mypassword mysql:5.7
+1db912c7a5f00d8db3c660ec8388d35e4e63b2e6dac600eb5b08456c221c6fff
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
+1db912c7a5f0        mysql:5.7           "docker-entrypoint.s…"   3 seconds ago       Up 2 seconds        3306/tcp, 33060/tcp   db01
+$ docker exec -it db01 /bin/bash
+root@1db912c7a5f0:/# mysql -pmypassword 
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.30 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+root@1db912c7a5f0:/# exit  
+exit
+$ docker stop db01
+db01
+$ docker rm db01
+db01
 ```
