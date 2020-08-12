@@ -759,4 +759,18 @@ Status: Downloaded newer image for busybox:latest
 ./sys/innodb_buffer_stats_by_schema.frm
 ./sys/host_summary_by_file_io.frm
 ./ib_logfile0
+
+$ ls -la | grep *.gz
+-rw-r--r--   1 kota.oue  staff  7146104  8 12 17:45 backup.tar.gz
+$ tar tzvf backup.tar.gz | head
+drwxr-xr-x  0 999    999         0  8 12 17:32 ./
+-rw-r-----  0 999    999        56  8 12 17:00 ./auto.cnf
+-rw-------  0 999    999      1680  8 12 17:00 ./client-key.pem
+-rw-r-----  0 999    999       403  8 12 17:32 ./ib_buffer_pool
+-rw-r--r--  0 999    999      1112  8 12 17:00 ./server-cert.pem
+-rw-r--r--  0 999    999      1112  8 12 17:00 ./ca.pem
+-rw-------  0 999    999      1676  8 12 17:00 ./server-key.pem
+-rw-------  0 999    999      1680  8 12 17:00 ./private_key.pem
+-rw-r--r--  0 999    999      1112  8 12 17:00 ./client-cert.pem
+drwxr-x---  0 999    999         0  8 12 17:00 ./performance_schema/
 ```
