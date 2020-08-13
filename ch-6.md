@@ -454,4 +454,13 @@ ff02::2	ip6-allrouters
 172.17.0.4	620cf4bb7e01
 root@493714b6dbf1:/# exit
 exit
+
+$ docker network create mydockernet
+2d1b7a6a29f2e711e54da495f49fe0771b77bb91d302176bfa70d993e3f3f877
+$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+a1e8a0a71a42        bridge              bridge              local
+d9704bca11b9        host                host                local
+2d1b7a6a29f2        mydockernet         bridge              local
+42eed01f7563        none                null                local
 ```
