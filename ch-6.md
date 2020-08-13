@@ -38,4 +38,13 @@ $ docker container inspect --format="{{.NetworkSettings.IPAddress}}" web01
 172.17.0.2
 $ docker container inspect --format="{{.NetworkSettings.IPAddress}}" web02
 172.17.0.3
+
+$ docker network inspect --format='{{range $host, $conf := .Containers}}{{$conf.Name}}->{{$conf.IPv4Address}}{{"\n"}}{{end}}' bridge
+web01->172.17.0.2/16
+web02->172.17.0.3/16
+
+$ docker network inspect --format='{{range $host, $conf := .Containers}}{{$conf.Name}}->{{$conf.IPv4Address}}{{","}}{{end}}' bridge
+web01->172.17.0.2/16,web02->172.17.0.3/16,
+$ docker network inspect --format='{{range $host, $conf := .Containers}}{{$conf.Name}}->{{$conf.IPv4Address}}{{", "}}{{end}}' bridge
+web01->172.17.0.2/16, web02->172.17.0.3/16, 
 ```
