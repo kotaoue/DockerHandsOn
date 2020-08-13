@@ -113,4 +113,36 @@ a9deb5008d2c        wordpress           "docker-entrypoint.s…"   6 seconds ago
 $ curl http://localhost:8080
 $ curl -s -o /dev/null -w %{http_code} http://localhost:8080/wp-admin/install.php
 200$ 
+
+$ docker logs wordpress-app
+WordPress not found in /var/www/html - copying now...
+Complete! WordPress has been successfully copied to /var/www/html
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.21.0.3. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.21.0.3. Set the 'ServerName' directive globally to suppress this message
+[Thu Aug 13 21:51:26.891052 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.9 configured -- resuming normal operations
+[Thu Aug 13 21:51:26.891132 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.21.0.1 - - [13/Aug/2020:21:52:00 +0000] "GET / HTTP/1.1" 302 404 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:00 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 4475 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-includes/css/dashicons.min.css?ver=5.5 HTTP/1.1" 200 36060 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-includes/css/buttons.min.css?ver=5.5 HTTP/1.1" 200 1788 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-admin/css/l10n.min.css?ver=5.5 HTTP/1.1" 200 1022 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-admin/css/forms.min.css?ver=5.5 HTTP/1.1" 200 6351 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-admin/js/language-chooser.min.js?ver=5.5 HTTP/1.1" 200 618 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-admin/css/install.min.css?ver=5.5 HTTP/1.1" 200 2125 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-includes/js/jquery/jquery.js?ver=1.12.4-wp HTTP/1.1" 200 34130 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-admin/images/wordpress-logo.svg?ver=20131107 HTTP/1.1" 200 1810 "http://localhost:8080/wp-admin/css/install.min.css?ver=5.5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-admin/images/spinner-2x.gif HTTP/1.1" 200 7822 "http://localhost:8080/wp-admin/css/install.min.css?ver=5.5" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /favicon.ico HTTP/1.1" 302 403 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+172.21.0.1 - - [13/Aug/2020:21:52:01 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 4475 "http://localhost:8080/wp-admin/install.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+127.0.0.1 - - [13/Aug/2020:21:52:08 +0000] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.38 (Debian) PHP/7.4.9 (internal dummy connection)"
+127.0.0.1 - - [13/Aug/2020:21:52:09 +0000] "OPTIONS * HTTP/1.0" 200 126 "-" "Apache/2.4.38 (Debian) PHP/7.4.9 (internal dummy connection)"
+172.21.0.1 - - [13/Aug/2020:21:52:12 +0000] "GET / HTTP/1.1" 302 348 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:52:30 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 12764 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:53:20 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 12764 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:53:28 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 12764 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:53:39 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 12764 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:53:56 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 12764 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:54:03 +0000] "GET / HTTP/1.1" 302 348 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:54:05 +0000] "GET / HTTP/1.1" 302 348 "-" "curl/7.64.1"
+172.21.0.1 - - [13/Aug/2020:21:54:08 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 12764 "-" "curl/7.64.1"
 ```
