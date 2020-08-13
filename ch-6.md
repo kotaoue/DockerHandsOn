@@ -32,5 +32,10 @@ $ docker inspect --format='{{range $p, $conf :=.NetworkSettings.Ports}} {{$p}} -
 Error: No such object: 80/tcp
 Error: No such object: -
 $ docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' web01
- 80/tcp -> 8080 
+ 80/tcp -> 8080
+
+$ docker container inspect --format="{{.NetworkSettings.IPAddress}}" web01
+172.17.0.2
+$ docker container inspect --format="{{.NetworkSettings.IPAddress}}" web02
+172.17.0.3
 ```
