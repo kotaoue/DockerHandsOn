@@ -110,4 +110,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 a9deb5008d2c        wordpress           "docker-entrypoint.s…"   6 seconds ago       Up 5 seconds        0.0.0.0:8080->80/tcp   wordpress-app
 1894dfe557f2        mysql:5.7           "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes        3306/tcp, 33060/tcp    wordpress-db
 
+$ curl http://localhost:8080
+$ curl -s -o /dev/null -w %{http_code} http://localhost:8080/wp-admin/install.php
+200$ 
 ```
