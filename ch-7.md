@@ -78,4 +78,36 @@ $ docker_search_tags wordpress | head
 "name": "4-fpm"
 "name": "4-fpm-alpine"
 "name": "4-php5.6"
+
+$ docker run --name wordpress-app -dit -p 8080:80 -e WORDPRESS_DB_HOST=wordpress-db -e WORDPRESS_DB_NAME=wpdb -e WORDPRESS_DB_USER=wpuser -e WORDPRESS_DB_PASSWORD=wppass --net wordpressnet wordpress
+Unable to find image 'wordpress:latest' locally
+latest: Pulling from library/wordpress
+bf5952930446: Already exists 
+a409b57eb464: Pull complete 
+3192e6c84ad0: Pull complete 
+43553740162b: Pull complete 
+d8b8bba42dea: Pull complete 
+eb10907c0110: Pull complete 
+10568906f34e: Pull complete 
+03fe17709781: Pull complete 
+98171b7166c8: Pull complete 
+3978c2fb05b8: Pull complete 
+71bf21524fa8: Pull complete 
+24fe81782f1c: Pull complete 
+7a2dfd067aa5: Pull complete 
+a04586f4f8fe: Pull complete 
+b8059b10e448: Pull complete 
+e5b4db4a14b4: Pull complete 
+48018c17c4e9: Pull complete 
+d09f106f9e16: Pull complete 
+289a459a6137: Pull complete 
+c4e8f9c90fda: Pull complete 
+Digest: sha256:6da8f886b20632dd05eeb22462f850a38e30600cedd894d2c6b1eb1a58e9763c
+Status: Downloaded newer image for wordpress:latest
+a9deb5008d2cd79b30ebecbd78c46447cafab98b70d18981e0b4f21e063024d4
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+a9deb5008d2c        wordpress           "docker-entrypoint.s…"   6 seconds ago       Up 5 seconds        0.0.0.0:8080->80/tcp   wordpress-app
+1894dfe557f2        mysql:5.7           "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes        3306/tcp, 33060/tcp    wordpress-db
+
 ```
