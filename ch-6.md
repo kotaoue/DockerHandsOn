@@ -417,4 +417,6 @@ root@015f38ad5fc5:/# ping -c web01
 ping: invalid argument: 'web01'
 root@015f38ad5fc5:/# curl http://web01/
 curl: (6) Could not resolve host: web01
+root@015f38ad5fc5:/# exit
+exit
 ```
