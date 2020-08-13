@@ -64,4 +64,18 @@ $ docker run --name wordpress-db -dit --mount type=volume,src=wordpress_db_volum
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
 1894dfe557f2        mysql:5.7           "docker-entrypoint.s…"   5 seconds ago       Up 4 seconds        3306/tcp, 33060/tcp   wordpress-db 
+
+$ docker_search_tags wordpress | wc -l
+    1090
+$ docker_search_tags wordpress | head
+"name": "latest"
+"name": "3"
+"name": "3.9"
+"name": "3.9.1"
+"name": "3.9.2"
+"name": "4"
+"name": "4-apache"
+"name": "4-fpm"
+"name": "4-fpm-alpine"
+"name": "4-php5.6"
 ```
