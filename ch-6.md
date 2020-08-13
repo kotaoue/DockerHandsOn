@@ -530,4 +530,11 @@ $ docker network inspect examplenet
 ]
 $ docker network rm examplenet
 examplenet
+
+$ docker stop web01 web02
+web01
+web02
+$ docker rm web01 web02
+web01
+web02
 ```
