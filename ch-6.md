@@ -463,4 +463,35 @@ a1e8a0a71a42        bridge              bridge              local
 d9704bca11b9        host                host                local
 2d1b7a6a29f2        mydockernet         bridge              local
 42eed01f7563        none                null                local
+$ docker network inspect mydockernet
+[
+    {
+        "Name": "mydockernet",
+        "Id": "2d1b7a6a29f2e711e54da495f49fe0771b77bb91d302176bfa70d993e3f3f877",
+        "Created": "2020-08-13T07:23:57.4723128Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16",
+                    "Gateway": "172.20.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
 ```
