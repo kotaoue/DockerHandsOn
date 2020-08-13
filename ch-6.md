@@ -408,4 +408,13 @@ PING 172.17.0.3 (172.17.0.3) 56(84) bytes of data.
 --- 172.17.0.3 ping statistics ---
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 rtt min/avg/max/mdev = 0.139/0.139/0.139/0.000 ms
+
+root@015f38ad5fc5:/# curl http://172.17.0.2/
+<html><body><h1>It works!</h1></body></html>
+root@015f38ad5fc5:/# curl http://172.17.0.3/
+<html><body><h1>It works!</h1></body></html>
+root@015f38ad5fc5:/# ping -c web01
+ping: invalid argument: 'web01'
+root@015f38ad5fc5:/# curl http://web01/
+curl: (6) Could not resolve host: web01
 ```
