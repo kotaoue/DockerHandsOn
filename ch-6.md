@@ -16,4 +16,21 @@ root@0965915c2c9f:/usr/local/apache2# ifconfig
 bash: ifconfig: command not found
 root@0965915c2c9f:/usr/local/apache2# exit
 exit
+
+$ docker container inspect --format="{{.NetworkSettings.IPAddress}}" web01
+172.17.0.2
+$ docker container inspect --format="{{.NetworkSettings}}" web01
+{{ 00919c1d70b3ad2903aee949561f2203072197f1ab32752cc686a40fcf8c4e65 false  0 map[80/tcp:[{0.0.0.0 8080}]] /var/run/docker/netns/00919c1d70b3 [] []} {0a5962d24143e5b4e069b4e61fe7e1a2fa96b36ddb003180ee76fd7eae796557 172.17.0.1  0 172.17.0.2 16  02:42:ac:11:00:02} map[bridge:0xc0005a0000]}
+
+$ docker container inspect --format='{{range $p, $conf :=.NetworkSettings.Ports}} {{$p}} -. {{(index $conf 0).HostPort}}{{end}}' web01 80/tcp -> 8080
+Error: No such container: 80/tcp
+Error: No such container: -
+$ docker container inspect --format='{{range $p, $conf :=.NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}}{{end}}' web01 80/tcp -> 8080
+Error: No such container: 80/tcp
+Error: No such container: -
+$ docker inspect --format='{{range $p, $conf :=.NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}}{{end}}' web01 80/tcp -> 8080
+Error: No such object: 80/tcp
+Error: No such object: -
+$ docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' web01
+ 80/tcp -> 8080 
 ```
