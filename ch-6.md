@@ -419,4 +419,29 @@ root@015f38ad5fc5:/# curl http://web01/
 curl: (6) Could not resolve host: web01
 root@015f38ad5fc5:/# exit
 exit
+
+$ docker run --rm -it --link web01:web01 --link web02:web02 ubuntu /bin/bash
+root@493714b6dbf1:/# apt update > /dev/null 2>&1
+root@493714b6dbf1:/# apt -y upgrade > /dev/null 2>&1
+root@493714b6dbf1:/# apt install -y iproute2 iputils-ping curl > /dev/null 2>&1
+root@493714b6dbf1:/# ping -c 1 web01 
+PING web01 (172.17.0.2) 56(84) bytes of data.
+64 bytes from web01 (172.17.0.2): icmp_seq=1 ttl=64 time=0.123 ms
+
+--- web01 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.123/0.123/0.123/0.000 ms
+root@493714b6dbf1:/# ping -c 1 web02
+PING web02 (172.17.0.3) 56(84) bytes of data.
+64 bytes from web02 (172.17.0.3): icmp_seq=1 ttl=64 time=0.098 ms
+
+--- web02 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.098/0.098/0.098/0.000 ms
+root@493714b6dbf1:/# curl http://web01/
+<html><body><h1>It works!</h1></body></html>
+root@493714b6dbf1:/# curl http://web02/
+<html><body><h1>It works!</h1></body></html>
+root@493714b6dbf1:/# exit
+exit
 ```
