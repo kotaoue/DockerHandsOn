@@ -494,4 +494,40 @@ $ docker network inspect mydockernet
         "Labels": {}
     }
 ]
+
+$ docker network create examplenet --subnet 10.0.0.0/16 --gateway 10.0.0.1
+34db2961eab1dc39b65f80d06c44e607ac5d59f91ec90918b8f5008785b5f9e6
+$ docker network inspect examplenet
+[
+    {
+        "Name": "examplenet",
+        "Id": "34db2961eab1dc39b65f80d06c44e607ac5d59f91ec90918b8f5008785b5f9e6",
+        "Created": "2020-08-13T07:25:43.4603551Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "10.0.0.0/16",
+                    "Gateway": "10.0.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+$ docker network rm examplenet
+examplenet
 ```
