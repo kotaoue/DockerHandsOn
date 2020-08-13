@@ -47,4 +47,14 @@ $ docker network inspect --format='{{range $host, $conf := .Containers}}{{$conf.
 web01->172.17.0.2/16,web02->172.17.0.3/16,
 $ docker network inspect --format='{{range $host, $conf := .Containers}}{{$conf.Name}}->{{$conf.IPv4Address}}{{", "}}{{end}}' bridge
 web01->172.17.0.2/16, web02->172.17.0.3/16, 
+
+$ docker run --rm -it ubuntu /bin/bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+3ff22d22a855: Pull complete 
+e7cb79d19722: Pull complete 
+323d0d660b6a: Pull complete 
+b7f616834fd0: Pull complete 
+Digest: sha256:5d1d5407f353843ecf8b16524bc5565aa332e9e6a1297c73a92d3e754b8a636d
+Status: Downloaded newer image for ubuntu:latest
 ```
