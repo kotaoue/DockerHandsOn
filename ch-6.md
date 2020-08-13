@@ -537,4 +537,56 @@ web02
 $ docker rm web01 web02
 web01
 web02
+
+$ docker run -dit --name web01 -p 8080:80 --net mydockernet httpd:2.4
+7ed554568c73b1b1f3245e16605e095c2fe32b020ba99a1bf266273027246f2a
+$ docker run -dit --name web02 -p 8081:80 --net mydockernet httpd:2.4
+6ab96d95700d39e699b369ded442976558230ec5b5dbe110279d760963ad8475
+$ docker network inspect mydockernet
+[
+    {
+        "Name": "mydockernet",
+        "Id": "2d1b7a6a29f2e711e54da495f49fe0771b77bb91d302176bfa70d993e3f3f877",
+        "Created": "2020-08-13T07:23:57.4723128Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16",
+                    "Gateway": "172.20.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "6ab96d95700d39e699b369ded442976558230ec5b5dbe110279d760963ad8475": {
+                "Name": "web02",
+                "EndpointID": "7413100d4a5a5675535409bb36276706252d59c09e73869d548b869fcbb397a2",
+                "MacAddress": "02:42:ac:14:00:03",
+                "IPv4Address": "172.20.0.3/16",
+                "IPv6Address": ""
+            },
+            "7ed554568c73b1b1f3245e16605e095c2fe32b020ba99a1bf266273027246f2a": {
+                "Name": "web01",
+                "EndpointID": "12488984180eda1ac326b5a17f023971878594fb28e8acd1a247b1c65128f27e",
+                "MacAddress": "02:42:ac:14:00:02",
+                "IPv4Address": "172.20.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
+$
 ```
