@@ -694,4 +694,20 @@ nameserver 127.0.0.11
 options ndots:0
 root@ea3b38ba9fbc:/# exit
 exit
+
+$ docker network rm mydockernet
+Error response from daemon: error while removing network: network mydockernet id 2d1b7a6a29f2e711e54da495f49fe0771b77bb91d302176bfa70d993e3f3f877 has active endpoints
+$ docker stop web01 web02
+web01
+web02
+$ docker network rm mydockernet
+mydockernet
+$ docker rm web01 web02
+web01
+web02
+$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+a1e8a0a71a42        bridge              bridge              local
+d9704bca11b9        host                host                local
+42eed01f7563        none                null                local
 ```
