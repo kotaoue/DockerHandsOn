@@ -676,4 +676,22 @@ $ docker network inspect mydockernet
         "Labels": {}
     }
 ]
+
+$ docker run --rm -it --net mydockernet ubuntu /bin/bash
+root@ea3b38ba9fbc:/# apt update > /dev/null 2>&1
+root@ea3b38ba9fbc:/# apt -y upgrade > /dev/null 2>&1
+root@ea3b38ba9fbc:/# apt install -y iproute2 iputils-ping curl > /dev/null 2>&1
+
+root@ea3b38ba9fbc:/# ping -c 1 web01
+PING web01 (172.20.0.2) 56(84) bytes of data.
+64 bytes from web01.mydockernet (172.20.0.2): icmp_seq=1 ttl=64 time=0.338 ms
+
+--- web01 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.338/0.338/0.338/0.000 ms
+root@ea3b38ba9fbc:/# cat /etc/resolv.conf 
+nameserver 127.0.0.11
+options ndots:0
+root@ea3b38ba9fbc:/# exit
+exit
 ```
