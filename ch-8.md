@@ -217,4 +217,17 @@ $ docker image rm myimage01
 Untagged: myimage01:latest
 Deleted: sha256:be172496cc274cbcf779d365adbc15fefc3920481605ab1bddeb4d8446c30dba
 Deleted: sha256:6e61caaaae8c80d62bbc688309a173b14609b118777340c00d1f24ecb570c16c
+
+$ curl -s https://github.com/docker-library/httpd/tree/master/2.4 | head
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://github.githubassets.com">
+
 ```
