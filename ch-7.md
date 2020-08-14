@@ -176,4 +176,23 @@ d9704bca11b9        host                     host                local
 $ docker volume ls
 DRIVER              VOLUME NAME
 local               wordpress_wordpress_db_volume
+
+$ docker-compose down
+Stopping wordpress_wordpress-app_1 ... done
+Stopping wordpress_wordpress-db_1  ... done
+Removing wordpress_wordpress-app_1 ... done
+Removing wordpress_wordpress-db_1  ... done
+Removing network wordpress_wordpressnet
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+a1e8a0a71a42        bridge              bridge              local
+d9704bca11b9        host                host                local
+42eed01f7563        none                null                local
+$ docker volume ls
+DRIVER              VOLUME NAME
+local               wordpress_wordpress_db_volume
 ```
