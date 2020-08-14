@@ -160,4 +160,38 @@ total 8
 drwxr-xr-x   3 kota.oue  staff   96  8 14 22:44 .
 drwxr-xr-x  18 kota.oue  staff  576  8 14 22:43 ..
 -rw-r--r--   1 kota.oue  staff   86  8 14 22:44 index.html
+
+$ touch Dockerfile
+$ docker build -t myimage01 .
+Sending build context to Docker daemon  3.072kB
+Step 1/2 : FROM httpd
+latest: Pulling from library/httpd
+Digest: sha256:3cbdff4bc16681541885ccf1524a532afa28d2a6578ab7c2d5154a7abc182379
+Status: Downloaded newer image for httpd:latest
+ ---> a6ea92c35c43
+Step 2/2 : COPY index.html /usr/local/apache2/htdocs
+ ---> be172496cc27
+Successfully built be172496cc27
+Successfully tagged myimage01:latest
+$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+myimage01           latest              be172496cc27        5 seconds ago       166MB
+$ docker history myimage01
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+be172496cc27        14 seconds ago      /bin/sh -c #(nop) COPY file:eb5f451621c7d777…   86B                 
+a6ea92c35c43        8 days ago          /bin/sh -c #(nop)  CMD ["httpd-foreground"]     0B                  
+<missing>           8 days ago          /bin/sh -c #(nop)  EXPOSE 80                    0B                  
+<missing>           8 days ago          /bin/sh -c #(nop) COPY file:c432ff61c4993ecd…   138B                
+<missing>           8 days ago          /bin/sh -c #(nop)  STOPSIGNAL SIGWINCH          0B                  
+<missing>           8 days ago          /bin/sh -c set -eux;   savedAptMark="$(apt-m…   61MB                
+<missing>           8 days ago          /bin/sh -c #(nop)  ENV HTTPD_PATCHES=           0B                  
+<missing>           8 days ago          /bin/sh -c #(nop)  ENV HTTPD_SHA256=740eddf6…   0B                  
+<missing>           8 days ago          /bin/sh -c #(nop)  ENV HTTPD_VERSION=2.4.46     0B                  
+<missing>           9 days ago          /bin/sh -c set -eux;  apt-get update;  apt-g…   35.4MB              
+<missing>           9 days ago          /bin/sh -c #(nop) WORKDIR /usr/local/apache2    0B                  
+<missing>           9 days ago          /bin/sh -c mkdir -p "$HTTPD_PREFIX"  && chow…   0B                  
+<missing>           9 days ago          /bin/sh -c #(nop)  ENV PATH=/usr/local/apach…   0B                  
+<missing>           9 days ago          /bin/sh -c #(nop)  ENV HTTPD_PREFIX=/usr/loc…   0B                  
+<missing>           9 days ago          /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
+<missing>           9 days ago          /bin/sh -c #(nop) ADD file:3af3091e7d2bb40bc…   69.2MB   
 ```
