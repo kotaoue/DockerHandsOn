@@ -1,5 +1,6 @@
 FROM debian
 EXPOSE 80
+STOPSIGNAL SIGWINCH
 RUN apt update \
     && apt install -y apache2 php libapache2-mod-php \
     && apt clean \
