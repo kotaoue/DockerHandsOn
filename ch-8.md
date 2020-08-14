@@ -359,4 +359,24 @@ $ docker stop myphp
 myphp
 $ docker rm myphp
 myphp
+
+$ docker save -o saved.tar myphpimage
+$ ls -la saved.tar 
+-rw-------  1 kota.oue  staff  253560832  8 14 23:12 saved.tar
+$ tar tvf saved.tar 
+drwxr-xr-x  0 0      0           0  8 14 23:11 0311969260b1efb38d70b8808b08f760bfe18acb42441fea00d35885ee9b0b6c/
+-rw-r--r--  0 0      0           3  8 14 23:11 0311969260b1efb38d70b8808b08f760bfe18acb42441fea00d35885ee9b0b6c/VERSION
+-rw-r--r--  0 0      0         477  8 14 23:11 0311969260b1efb38d70b8808b08f760bfe18acb42441fea00d35885ee9b0b6c/json
+-rw-r--r--  0 0      0   134319616  8 14 23:11 0311969260b1efb38d70b8808b08f760bfe18acb42441fea00d35885ee9b0b6c/layer.tar
+drwxr-xr-x  0 0      0           0  8 14 23:11 06620b72e8603dc58fb74a7b73c3bbc82f073b909b6e0e2b8d517e9a7a809c14/
+-rw-r--r--  0 0      0           3  8 14 23:11 06620b72e8603dc58fb74a7b73c3bbc82f073b909b6e0e2b8d517e9a7a809c14/VERSION
+-rw-r--r--  0 0      0        1407  8 14 23:11 06620b72e8603dc58fb74a7b73c3bbc82f073b909b6e0e2b8d517e9a7a809c14/json
+-rw-r--r--  0 0      0        3584  8 14 23:11 06620b72e8603dc58fb74a7b73c3bbc82f073b909b6e0e2b8d517e9a7a809c14/layer.tar
+drwxr-xr-x  0 0      0           0  8 14 23:11 78c2c599cff6609cf58f5f502daa7e4ecca6d413171bc03cedfdc4a8dda07033/
+-rw-r--r--  0 0      0           3  8 14 23:11 78c2c599cff6609cf58f5f502daa7e4ecca6d413171bc03cedfdc4a8dda07033/VERSION
+-rw-r--r--  0 0      0         401  8 14 23:11 78c2c599cff6609cf58f5f502daa7e4ecca6d413171bc03cedfdc4a8dda07033/json
+-rw-r--r--  0 0      0   119220736  8 14 23:11 78c2c599cff6609cf58f5f502daa7e4ecca6d413171bc03cedfdc4a8dda07033/layer.tar
+-rw-r--r--  0 0      0        2612  8 14 23:11 cb9ceebdc7f3daeaf8d04804395bd5c96b27f3e9e03adb8c5969cf7dfb8bb3a4.json
+-rw-r--r--  0 0      0         360  1  1  1970 manifest.json
+-rw-r--r--  0 0      0          93  1  1  1970 repositories
 ```
