@@ -284,4 +284,8 @@ The command '/bin/sh -c apt update     && apt install -y apache2 php libapache2-
 $ docker build . -t myphpimage
 Successfully built 44600250d509
 Successfully tagged myphpimage:latest
+
+$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+myphpimage          latest              44600250d509        48 seconds ago      245MB
 ```
