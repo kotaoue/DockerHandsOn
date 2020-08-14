@@ -156,4 +156,10 @@ $ docker network rm wordpressnet
 wordpressnet
 $ docker volume rm wordpress_db_volume
 wordpress_db_volume
+
+$ docker-compose --version
+docker-compose version 1.26.2, build eefe0d31
+$ mkdir wordpress
+$ cd wordpress/
+$ vim docker-compose.yml
 ```
