@@ -233,4 +233,45 @@ $ curl -s https://github.com/docker-library/httpd/tree/master/2.4 | head
 $ cd ..
 $ mkdir phpimage
 $ cd phpimage/
+
+$ touch index.php
+$ touch Dockerfile
+
+$ docker build . -t myphpimage
+Sending build context to Docker daemon  3.072kB
+Step 1/5 : FROM debian
+latest: Pulling from library/debian
+d6ff36c9ec48: Already exists 
+Digest: sha256:1e74c92df240634a39d050a5e23fb18f45df30846bb222f543414da180b47a5d
+Status: Downloaded newer image for debian:latest
+ ---> ee11c54e6bb7
+Step 2/5 : EXPOSE 80
+ ---> Running in e7208146dfff
+Removing intermediate container e7208146dfff
+ ---> 9fafd184042b
+Step 3/5 : RUN apt update     && apt install -y apache2 php libapache-mod-php     && apt clean     && rm -rf /var/lib/apt/lists/*     && rm /var/www/htmo/index.html
+ ---> Running in ebb69d6f9bb9
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Get:1 http://deb.debian.org/debian buster InRelease [122 kB]
+Get:2 http://deb.debian.org/debian buster-updates InRelease [51.9 kB]
+Get:3 http://deb.debian.org/debian buster/main amd64 Packages [7906 kB]
+Get:4 http://security.debian.org/debian-security buster/updates InRelease [65.4 kB]
+Get:5 http://security.debian.org/debian-security buster/updates/main amd64 Packages [218 kB]
+Get:6 http://deb.debian.org/debian buster-updates/main amd64 Packages [7868 B]
+Fetched 8372 kB in 3s (3324 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+All packages are up to date.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+E: Unable to locate package libapache-mod-php
+The command '/bin/sh -c apt update     && apt install -y apache2 php libapache-mod-php     && apt clean     && rm -rf /var/lib/apt/lists/*     && rm /var/www/htmo/index.html' returned a non-zero code: 100
+$
 ```
