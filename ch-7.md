@@ -195,4 +195,10 @@ d9704bca11b9        host                host                local
 $ docker volume ls
 DRIVER              VOLUME NAME
 local               wordpress_wordpress_db_volume
+
+$ docker-compose up -d
+ERROR: The Compose file './docker-compose.yml' is invalid because:
+services.wordpress-db.volumes contains an invalid type, it should be a string
+services.wordpress-db.volumes contains an invalid type, it should be a string
+services.wordpress-db.volumes contains an invalid type, it should be a string
 ```
