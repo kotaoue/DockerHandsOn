@@ -379,4 +379,118 @@ drwxr-xr-x  0 0      0           0  8 14 23:11 78c2c599cff6609cf58f5f502daa7e4ec
 -rw-r--r--  0 0      0        2612  8 14 23:11 cb9ceebdc7f3daeaf8d04804395bd5c96b27f3e9e03adb8c5969cf7dfb8bb3a4.json
 -rw-r--r--  0 0      0         360  1  1  1970 manifest.json
 -rw-r--r--  0 0      0          93  1  1  1970 repositories
+
+$ docker image rm myphpimage
+Untagged: myphpimage:latest
+Deleted: sha256:cb9ceebdc7f3daeaf8d04804395bd5c96b27f3e9e03adb8c5969cf7dfb8bb3a4
+Deleted: sha256:1b10000ad457d2d50a9bf39aaf09a917382810fb8f2285d295aadd32c81ae2ee
+Deleted: sha256:cbe0c3fd50a109ebc5e7f4df1d3939f523948332fe0de9d1dd99fbec91443605
+Deleted: sha256:cb69998a45da709e0b597c4ccbbec3e57be0a5c5fe8d62f9a90502e7bc48e6a3
+Deleted: sha256:60ba9a83639bda53cca8afd090456b3f5a014afb70842060e52d84b34cf8e821
+Deleted: sha256:2351d7772bd6bedc1967240efdd556821dacf2d522c38465f709558316f81470
+$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+
+$ docker load -i saved.tar 
+37f354a60981: Loading layer [==================================================>]  134.3MB/134.3MB
+3435096d8215: Loading layer [==================================================>]  3.584kB/3.584kB
+Loaded image: myphpimage:latest
+$ docker image ls | grep myphpimage
+myphpimage          latest              cb9ceebdc7f3        4 minutes ago       245MB
+
+$ docker run -dit --name myphp02 -p 8080:80 myphpimage
+f00b8eed2a246fd4dd3913676f9dc0ad3df52e14ec741075d504197458bc0a9f
+$ curl http://localhost:8080
+<html>
+<head><title>TestPage</title></head>
+<body>
+<pre>
+array(26) {
+  ["HTTP_HOST"]=>
+  string(14) "localhost:8080"
+  ["HTTP_USER_AGENT"]=>
+  string(11) "curl/7.64.1"
+  ["HTTP_ACCEPT"]=>
+  string(3) "*/*"
+  ["PATH"]=>
+  string(60) "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  ["SERVER_SIGNATURE"]=>
+  string(72) "<address>Apache/2.4.38 (Debian) Server at localhost Port 8080</address>
+"
+  ["SERVER_SOFTWARE"]=>
+  string(22) "Apache/2.4.38 (Debian)"
+  ["SERVER_NAME"]=>
+  string(9) "localhost"
+  ["SERVER_ADDR"]=>
+  string(10) "172.17.0.2"
+  ["SERVER_PORT"]=>
+  string(4) "8080"
+  ["REMOTE_ADDR"]=>
+  string(10) "172.17.0.1"
+  ["DOCUMENT_ROOT"]=>
+  string(13) "/var/www/html"
+  ["REQUEST_SCHEME"]=>
+  string(4) "http"
+  ["CONTEXT_PREFIX"]=>
+  string(0) ""
+  ["CONTEXT_DOCUMENT_ROOT"]=>
+  string(13) "/var/www/html"
+  ["SERVER_ADMIN"]=>
+  string(19) "webmaster@localhost"
+  ["SCRIPT_FILENAME"]=>
+  string(23) "/var/www/html/index.php"
+  ["REMOTE_PORT"]=>
+  string(5) "45462"
+  ["GATEWAY_INTERFACE"]=>
+  string(7) "CGI/1.1"
+  ["SERVER_PROTOCOL"]=>
+  string(8) "HTTP/1.1"
+  ["REQUEST_METHOD"]=>
+  string(3) "GET"
+  ["QUERY_STRING"]=>
+  string(0) ""
+  ["REQUEST_URI"]=>
+  string(1) "/"
+  ["SCRIPT_NAME"]=>
+  string(10) "/index.php"
+  ["PHP_SELF"]=>
+  string(10) "/index.php"
+  ["REQUEST_TIME_FLOAT"]=>
+  float(1597414664.114)
+  ["REQUEST_TIME"]=>
+  int(1597414664)
+}
+</pre>
+</body>
+</html>
+$ docker stop myphp02
+myphp02
+$ docker rm myphp02
+myphp02
+
+$ docker run -dit --name myphp02 -p 8080:80 myphpimage
+$ docker export -o exported.tar myphp02
+$ tar tvf exported.tar | head
+-rwxr-xr-x  0 0      0           0  8 14 23:19 .dockerenv
+drwxr-xr-x  0 0      0           0  8 14 23:11 bin/
+-rwxr-xr-x  0 0      0     1168776  4 18  2019 bin/bash
+-rwxr-xr-x  0 0      0       38984  7 11  2019 bin/bunzip2
+-rwxr-xr-x  0 0      0           0  7 11  2019 bin/bzcat link to bin/bunzip2
+lrwxrwxrwx  0 0      0           0  7 11  2019 bin/bzcmp -> bzdiff
+-rwxr-xr-x  0 0      0        2227  7 11  2019 bin/bzdiff
+lrwxrwxrwx  0 0      0           0  7 11  2019 bin/bzegrep -> bzgrep
+-rwxr-xr-x  0 0      0        4877  6 25  2019 bin/bzexe
+lrwxrwxrwx  0 0      0           0  7 11  2019 bin/bzfgrep -> bzgrep
+
+$ docker import exported.tar tmp_httpd
+sha256:7ccb2060d8f6e16480bd3091da37f86c0663b66f5046287bd3cd3fb9a224f0f7
+$ docker run -dit --name myphp03 -p 8080:80 tmp_httpd
+docker: Error response from daemon: No command specified.
+See 'docker run --help'.
+
+$ docker login
+Authenticating with existing credentials...
+Login Succeeded
+$ docker logout
+Removing login credentials for https://index.docker.io/v1/
 ```
