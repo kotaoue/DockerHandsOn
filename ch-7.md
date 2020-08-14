@@ -145,4 +145,15 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 172.21.0.1 - - [13/Aug/2020:21:54:03 +0000] "GET / HTTP/1.1" 302 348 "-" "curl/7.64.1"
 172.21.0.1 - - [13/Aug/2020:21:54:05 +0000] "GET / HTTP/1.1" 302 348 "-" "curl/7.64.1"
 172.21.0.1 - - [13/Aug/2020:21:54:08 +0000] "GET /wp-admin/install.php HTTP/1.1" 200 12764 "-" "curl/7.64.1"
+
+$ docker stop wordpress-db wordpress-app
+wordpress-db
+wordpress-app
+$ docker rm wordpress-db wordpress-app
+wordpress-db
+wordpress-app
+$ docker network rm wordpressnet
+wordpressnet
+$ docker volume rm wordpress_db_volume
+wordpress_db_volume
 ```
