@@ -74,4 +74,23 @@ sha256:1f517ea946fc90c29e7117a5a0c1061a168845b4778f70dbee47cb8c136ec7b2
 $ docker image ls
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 mycustomed_httpd    latest              1f517ea946fc        7 seconds ago       166MB
+
+$ docker image history mycustomed_httpd
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+1f517ea946fc        44 seconds ago      httpd-foreground                                88B                 
+a6ea92c35c43        8 days ago          /bin/sh -c #(nop)  CMD ["httpd-foreground"]     0B                  
+<missing>           8 days ago          /bin/sh -c #(nop)  EXPOSE 80                    0B                  
+<missing>           8 days ago          /bin/sh -c #(nop) COPY file:c432ff61c4993ecd…   138B                
+<missing>           8 days ago          /bin/sh -c #(nop)  STOPSIGNAL SIGWINCH          0B                  
+<missing>           8 days ago          /bin/sh -c set -eux;   savedAptMark="$(apt-m…   61MB                
+<missing>           8 days ago          /bin/sh -c #(nop)  ENV HTTPD_PATCHES=           0B                  
+<missing>           8 days ago          /bin/sh -c #(nop)  ENV HTTPD_SHA256=740eddf6…   0B                  
+<missing>           8 days ago          /bin/sh -c #(nop)  ENV HTTPD_VERSION=2.4.46     0B                  
+<missing>           9 days ago          /bin/sh -c set -eux;  apt-get update;  apt-g…   35.4MB              
+<missing>           9 days ago          /bin/sh -c #(nop) WORKDIR /usr/local/apache2    0B                  
+<missing>           9 days ago          /bin/sh -c mkdir -p "$HTTPD_PREFIX"  && chow…   0B                  
+<missing>           9 days ago          /bin/sh -c #(nop)  ENV PATH=/usr/local/apach…   0B                  
+<missing>           9 days ago          /bin/sh -c #(nop)  ENV HTTPD_PREFIX=/usr/loc…   0B                  
+<missing>           9 days ago          /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
+<missing>           9 days ago          /bin/sh -c #(nop) ADD file:3af3091e7d2bb40bc…   69.2MB   
 ```
