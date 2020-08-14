@@ -55,4 +55,17 @@ IMAGE               CREATED             CREATED BY                              
 <missing>           9 days ago          /bin/sh -c groupadd -r mysql && useradd -r -…   329kB               
 <missing>           9 days ago          /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
 <missing>           9 days ago          /bin/sh -c #(nop) ADD file:3af3091e7d2bb40bc…   69.2MB  
+
+$ docker run -dit --name webcontet -p 8080:80 httpd:2.4
+652adaf9d269afac7ddfb45f8e1ffce27255d0a25edbb9520b38b29a14d5da6b
+$ docker cp index.html webcontet:/usr/local/apache2/htdocs
+$ curl http://localhost:8080
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
 ```
