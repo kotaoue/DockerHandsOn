@@ -3,8 +3,6 @@ version: "3"
 services:
   wordpress-db:
     image: mysql:5.7
-    networks:
-      - wordpressnet
     volumes:
       - wordpress_db_volume:/var/lib/mysql
     restart: always
@@ -18,8 +16,6 @@ services:
     depends_on:
       - wordpress-db
     image: wordpress
-    networks:
-      - wordpressnet
     ports:
       - 8080:80
     restart: always
@@ -28,9 +24,6 @@ services:
       MYSQL_DATABASE: wpdb
       MYSQL_USER: wpuser
       MYSQL_PASSWORD: wppass
-
-networks:
-  wordpressnet:
 
 volumes:
   wordpress_db_volume:
