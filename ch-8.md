@@ -68,4 +68,10 @@ $ curl http://localhost:8080
 I'm index.html
 </body>
 </html>
+
+$ docker commit webcontet mycustomed_httpd
+sha256:1f517ea946fc90c29e7117a5a0c1061a168845b4778f70dbee47cb8c136ec7b2
+$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+mycustomed_httpd    latest              1f517ea946fc        7 seconds ago       166MB
 ```
