@@ -208,4 +208,15 @@ services.wordpress-db.volumes contains an invalid type, it should be a string
 $ docker-compose up -d
 ERROR: The Compose file './docker-compose.yml' is invalid because:
 services.wordpress-db.volumes contains an invalid type, it should be an array
+
+$ docker-compose up -d
+Creating network "wordpress_default" with the default driver
+Creating wordpress_wordpress-db_1 ... done
+Creating wordpress_wordpress-app_1 ... done
+$ docker-compose exec wordpress-app /bin/bash
+root@74ecb474c8e2:/var/www/html# ls
+index.php    readme.html      wp-admin		  wp-comments-post.php	wp-content   wp-includes	wp-load.php   wp-mail.php      wp-signup.php	 xmlrpc.php
+license.txt  wp-activate.php  wp-blog-header.php  wp-config-sample.php	wp-cron.php  wp-links-opml.php	wp-login.php  wp-settings.php  wp-trackback.php
+root@74ecb474c8e2:/var/www/html# exit
+exit
 ```
