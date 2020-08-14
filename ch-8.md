@@ -147,4 +147,7 @@ $ docker image rm mycustomed_httpd
 Untagged: mycustomed_httpd:latest
 Deleted: sha256:1f517ea946fc90c29e7117a5a0c1061a168845b4778f70dbee47cb8c136ec7b2
 Deleted: sha256:ad8102bd7f27aba602831422007607c0dd84a035dc987534c0d0fa2de865568d
+
+$ mkdir customed_httpd
+$ cd customed_httpd/
 ```
