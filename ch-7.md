@@ -219,4 +219,25 @@ index.php    readme.html      wp-admin		  wp-comments-post.php	wp-content   wp-i
 license.txt  wp-activate.php  wp-blog-header.php  wp-config-sample.php	wp-cron.php  wp-links-opml.php	wp-login.php  wp-settings.php  wp-trackback.php
 root@74ecb474c8e2:/var/www/html# exit
 exit
+
+$ docker-compose stop wordpress-db
+Stopping wordpress_wordpress-db_1 ... done
+$ docker-compose ps
+          Name                         Command               State           Ports        
+------------------------------------------------------------------------------------------
+wordpress_wordpress-app_1   docker-entrypoint.sh apach ...   Up       0.0.0.0:8080->80/tcp
+wordpress_wordpress-db_1    docker-entrypoint.sh mysqld      Exit 0                       
+$ docker-compose start wordpress-db
+Starting wordpress-db ... done
+$ docker-compose ps
+          Name                         Command               State          Ports        
+-----------------------------------------------------------------------------------------
+wordpress_wordpress-app_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8080->80/tcp
+wordpress_wordpress-db_1    docker-entrypoint.sh mysqld      Up      3306/tcp, 33060/tcp 
+$ docker-compose down
+Stopping wordpress_wordpress-app_1 ... done
+Stopping wordpress_wordpress-db_1  ... done
+Removing wordpress_wordpress-app_1 ... done
+Removing wordpress_wordpress-db_1  ... done
+Removing network wordpress_default
 ```
