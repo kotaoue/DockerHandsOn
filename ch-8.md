@@ -280,5 +280,8 @@ WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
 
 rm: cannot remove '/var/www/htmo/index.html': No such file or directory
 The command '/bin/sh -c apt update     && apt install -y apache2 php libapache2-mod-php     && apt clean     && rm -rf /var/lib/apt/lists/*     && rm /var/www/htmo/index.html' returned a non-zero code: 1
-$ dock
+
+$ docker build . -t myphpimage
+Successfully built 44600250d509
+Successfully tagged myphpimage:latest
 ```
