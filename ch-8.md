@@ -194,4 +194,16 @@ a6ea92c35c43        8 days ago          /bin/sh -c #(nop)  CMD ["httpd-foregroun
 <missing>           9 days ago          /bin/sh -c #(nop)  ENV HTTPD_PREFIX=/usr/loc…   0B                  
 <missing>           9 days ago          /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
 <missing>           9 days ago          /bin/sh -c #(nop) ADD file:3af3091e7d2bb40bc…   69.2MB   
+
+$ docker run -dit --name webcontent_docker -p 8080:80 myimage01
+60a3fdc8db0f35ca96e31577f9e9ca24cc77dee8f321a13bd028bad890636900
+$ curl http://localhost:8080
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
 ```
