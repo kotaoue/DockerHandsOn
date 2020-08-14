@@ -6,9 +6,9 @@ services:
     networks:
       - wordpressnet
     volumes:
-      - type: volume
-        source: wordpress_db_volume
-        target: /var/lib/mysql
+      type: volume
+      source: wordpress_db_volume
+      target: /var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
