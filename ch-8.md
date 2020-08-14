@@ -288,4 +288,70 @@ Successfully tagged myphpimage:latest
 $ docker image ls
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 myphpimage          latest              44600250d509        48 seconds ago      245MB
+
+$ docker run -dit --name myphp -p 8080:80 myphpimage
+bc433df6a8626de4da191a1f20f179c670218840fd419400e6b14d483c648357
+$ curl http://localhost:8080
+<html>
+<head><title>TestPage</title></head>
+<body>
+<pre>
+array(26) {
+  ["HTTP_HOST"]=>
+  string(14) "localhost:8080"
+  ["HTTP_USER_AGENT"]=>
+  string(11) "curl/7.64.1"
+  ["HTTP_ACCEPT"]=>
+  string(3) "*/*"
+  ["PATH"]=>
+  string(60) "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  ["SERVER_SIGNATURE"]=>
+  string(72) "<address>Apache/2.4.38 (Debian) Server at localhost Port 8080</address>
+"
+  ["SERVER_SOFTWARE"]=>
+  string(22) "Apache/2.4.38 (Debian)"
+  ["SERVER_NAME"]=>
+  string(9) "localhost"
+  ["SERVER_ADDR"]=>
+  string(10) "172.17.0.2"
+  ["SERVER_PORT"]=>
+  string(4) "8080"
+  ["REMOTE_ADDR"]=>
+  string(10) "172.17.0.1"
+  ["DOCUMENT_ROOT"]=>
+  string(13) "/var/www/html"
+  ["REQUEST_SCHEME"]=>
+  string(4) "http"
+  ["CONTEXT_PREFIX"]=>
+  string(0) ""
+  ["CONTEXT_DOCUMENT_ROOT"]=>
+  string(13) "/var/www/html"
+  ["SERVER_ADMIN"]=>
+  string(19) "webmaster@localhost"
+  ["SCRIPT_FILENAME"]=>
+  string(23) "/var/www/html/index.php"
+  ["REMOTE_PORT"]=>
+  string(5) "45446"
+  ["GATEWAY_INTERFACE"]=>
+  string(7) "CGI/1.1"
+  ["SERVER_PROTOCOL"]=>
+  string(8) "HTTP/1.1"
+  ["REQUEST_METHOD"]=>
+  string(3) "GET"
+  ["QUERY_STRING"]=>
+  string(0) ""
+  ["REQUEST_URI"]=>
+  string(1) "/"
+  ["SCRIPT_NAME"]=>
+  string(10) "/index.php"
+  ["PHP_SELF"]=>
+  string(10) "/index.php"
+  ["REQUEST_TIME_FLOAT"]=>
+  float(1597414146.779)
+  ["REQUEST_TIME"]=>
+  int(1597414146)
+}
+</pre>
+</body>
+</html>
 ```
