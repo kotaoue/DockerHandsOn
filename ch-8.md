@@ -150,4 +150,14 @@ Deleted: sha256:ad8102bd7f27aba602831422007607c0dd84a035dc987534c0d0fa2de865568d
 
 $ mkdir customed_httpd
 $ cd customed_httpd/
+$ ll
+total 0
+drwxr-xr-x   2 kota.oue  staff   64  8 14 22:43 .
+drwxr-xr-x  18 kota.oue  staff  576  8 14 22:43 ..
+$ cp ../index.html index.html
+$ ll
+total 8
+drwxr-xr-x   3 kota.oue  staff   96  8 14 22:44 .
+drwxr-xr-x  18 kota.oue  staff  576  8 14 22:43 ..
+-rw-r--r--   1 kota.oue  staff   86  8 14 22:44 index.html
 ```
