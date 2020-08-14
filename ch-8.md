@@ -127,4 +127,24 @@ $ curl http://localhost:8081
 I'm index.html
 </body>
 </html>
+
+$ docker stop webcontet webcontet
+webcontet
+webcontet
+$ docker rm webcontet webcontet
+webcontet
+Error response from daemon: removal of container webcontet is already in progress
+$ docker stop webcontet webcontet_new
+Error response from daemon: No such container: webcontet
+Error response from daemon: No such container: webcontet_new
+$ docker stop webcontet webcontent_new
+webcontent_new
+Error response from daemon: No such container: webcontet
+$ docker rm webcontet webcontent_new
+webcontent_new
+Error: No such container: webcontet
+$ docker image rm mycustomed_httpd
+Untagged: mycustomed_httpd:latest
+Deleted: sha256:1f517ea946fc90c29e7117a5a0c1061a168845b4778f70dbee47cb8c136ec7b2
+Deleted: sha256:ad8102bd7f27aba602831422007607c0dd84a035dc987534c0d0fa2de865568d
 ```
