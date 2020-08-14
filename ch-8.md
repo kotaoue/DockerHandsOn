@@ -354,4 +354,9 @@ array(26) {
 </pre>
 </body>
 </html>
+
+$ docker stop myphp
+myphp
+$ docker rm myphp
+myphp
 ```
