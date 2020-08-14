@@ -230,4 +230,7 @@ $ curl -s https://github.com/docker-library/httpd/tree/master/2.4 | head
     <meta charset="utf-8">
   <link rel="dns-prefetch" href="https://github.githubassets.com">
 
+$ cd ..
+$ mkdir phpimage
+$ cd phpimage/
 ```
