@@ -93,4 +93,38 @@ a6ea92c35c43        8 days ago          /bin/sh -c #(nop)  CMD ["httpd-foregroun
 <missing>           9 days ago          /bin/sh -c #(nop)  ENV HTTPD_PREFIX=/usr/loc…   0B                  
 <missing>           9 days ago          /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
 <missing>           9 days ago          /bin/sh -c #(nop) ADD file:3af3091e7d2bb40bc…   69.2MB   
+
+$ docker run -dit --name webcontent_new -p 8081:80 mycustomed_httpd
+7a97f16dde8660129b7d66e88762299195be9d7a9602e1c890fc36ea7b054bee
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                  NAMES
+7a97f16dde86        mycustomed_httpd    "httpd-foreground"   2 seconds ago       Up 2 seconds        0.0.0.0:8081->80/tcp   webcontent_new
+652adaf9d269        httpd:2.4           "httpd-foreground"   3 minutes ago       Up 3 minutes        0.0.0.0:8080->80/tcp   webcontet
+$ docker exec -it webcontent_new /bin/bash
+root@7a97f16dde86:/usr/local/apache2# cd /usr/local/apache2/htdocs/
+root@7a97f16dde86:/usr/local/apache2/htdocs# ls -la
+total 16
+drwxr-xr-x 1 root     root     4096 Aug 14 13:36 .
+drwxr-xr-x 1 www-data www-data 4096 Aug  5 23:21 ..
+-rw-r--r-- 1      502 dialout    86 Aug  9 10:31 index.html
+root@7a97f16dde86:/usr/local/apache2/htdocs# cat index.html 
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
+root@7a97f16dde86:/usr/local/apache2/htdocs# exit
+exit
+$ curl http://localhost:8081
+<html>
+<head>
+<title>index.html</title>
+</head>
+<body>
+I'm index.html
+</body>
+</html>
 ```
