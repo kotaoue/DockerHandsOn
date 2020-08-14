@@ -162,4 +162,18 @@ docker-compose version 1.26.2, build eefe0d31
 $ mkdir wordpress
 $ cd wordpress/
 $ vim docker-compose.yml
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+c7a00aa0b76f        wordpress           "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        0.0.0.0:8080->80/tcp   wordpress_wordpress-app_1
+c2b0031794c5        mysql:5.7           "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        3306/tcp, 33060/tcp    wordpress_wordpress-db_1
+$ docker network ls
+NETWORK ID          NAME                     DRIVER              SCOPE
+a1e8a0a71a42        bridge                   bridge              local
+d9704bca11b9        host                     host                local
+42eed01f7563        none                     null                local
+9c3c02484b10        wordpress_wordpressnet   bridge              local
+$ docker volume ls
+DRIVER              VOLUME NAME
+local               wordpress_wordpress_db_volume
 ```
