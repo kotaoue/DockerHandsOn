@@ -273,5 +273,12 @@ Building dependency tree...
 Reading state information...
 E: Unable to locate package libapache-mod-php
 The command '/bin/sh -c apt update     && apt install -y apache2 php libapache-mod-php     && apt clean     && rm -rf /var/lib/apt/lists/*     && rm /var/www/htmo/index.html' returned a non-zero code: 100
-$
+
+
+$ docker build . -t myphpimage
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+rm: cannot remove '/var/www/htmo/index.html': No such file or directory
+The command '/bin/sh -c apt update     && apt install -y apache2 php libapache2-mod-php     && apt clean     && rm -rf /var/lib/apt/lists/*     && rm /var/www/htmo/index.html' returned a non-zero code: 1
+$ dock
 ```
